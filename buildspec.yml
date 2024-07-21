@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS —password-stdin 3221242524113.dkr.ecr.ap-northeast-2.amazonaws.com
+      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS —password-stdin 221242524113.dkr.ecr.ap-northeast-2.amazonaws.com
       - docker build -t my_web .
       - docker tag my_web:latest 221242524113.dkr.ecr.ap-northeast-2.amazonaws.com/my_web:latest
       - docker push 221242524113.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
