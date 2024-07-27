@@ -5,7 +5,7 @@ EXPOSE 80
 WORKDIR /app 
 
 COPY requirements.txt /app
-COPY /home/ec2-user/project/image /app
+COPY /home/ec2-user/project/dkgimgtest /app
  
 RUN pip3 install -r requirements.txt
 
