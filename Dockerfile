@@ -4,8 +4,8 @@ EXPOSE 80
 
 WORKDIR /app 
 
-COPY /home/ec2-user/project/image/requirements.txt /app
-COPY /home/ec2-user/django /app
+COPY requirements.txt /app
+COPY django /app
  
 RUN pip3 install -r requirements.txt
 
