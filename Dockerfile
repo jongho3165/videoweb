@@ -5,9 +5,8 @@ EXPOSE 80
 WORKDIR /app 
 
 COPY requirements.txt /app
-COPY django /app
+COPY django /app/django
  
 RUN pip3 install -r requirements.txt
 
-CMD ["ls"]
 CMD ["python3", "django/video/manage.py", "runserver", "0.0.0.0:80"]
