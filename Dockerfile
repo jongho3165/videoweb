@@ -9,4 +9,5 @@ COPY django /app
  
 RUN pip3 install -r requirements.txt
 
+CMD ["ls"]
 CMD ["python3", "django/video/manage.py", "runserver", "0.0.0.0:80"]
