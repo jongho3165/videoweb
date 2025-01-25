@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: 221242524113.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
+        image: 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
         ports:
         - containerPort: 80
           protocol: TCP
