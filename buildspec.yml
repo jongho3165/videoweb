@@ -4,8 +4,9 @@ phases:
   install:
     runtime-versions:
       docker: 20
-        - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-        - sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    commands:
+      - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      - sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
   build:
     commands:
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb
