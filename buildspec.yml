@@ -6,7 +6,7 @@ phases:
     - sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
   build:
     commands:
-      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 221242524113.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb
+      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb
       - docker build -t videostream .
       - docker tag videostream:latest 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - docker push 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
