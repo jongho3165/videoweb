@@ -14,12 +14,10 @@ phases:
       - docker tag videostream:latest 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - docker push 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - aws eks update-kubeconfig --region ap-northeast-2 --name videostream
-      
-      - kubectl config view > kubectl_config.log
-      - kubectl get nodes > kubectl_get_nodes.log
-      - kubectl apply -f deployment.yml > kubectl_apply_deployment.log
-      - kubectl apply -f service.yml > kubectl_apply_service.log
-      - kubectl apply -f ingress.yml > kubectl_apply_ingress.log
+      - kubectl get nodes > kubectl_get_nodes.log || true
+      - kubectl apply -f deployment.yml > kubectl_apply_deployment.log || true
+      - kubectl apply -f service.yml > kubectl_apply_service.log || true
+      - kubectl apply -f ingress.yml > kubectl_apply_ingress.log || true
       - aws s3 cp kubectl_config.log s3://jongho3165/kubectl_config.log
       - aws s3 cp kubectl_get_nodes.log s3://jongho3165/kubectl_get_nodes.log
       - aws s3 cp kubectl_apply_deployment.log s3://jongho3165/kubectl_apply_deployment.log
