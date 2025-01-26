@@ -24,8 +24,7 @@ phases:
       - aws s3 cp kubectl_get_nodes.log s3://jongho3165/kubectl_get_nodes.log || true
       - aws s3 cp kubectl_apply_deployment.log s3://jongho3165/kubectl_apply_deployment.log || true
       - aws s3 cp kubectl_apply_service.log s3://jongho3165/kubectl_apply_service.log || true
-      - aws s3 cp kubectl_apply_ingress.log || true
-      - aws s3 cp kubectl_config.log || true
-      - aws s3 cp ls.log || true
+      - aws s3 cp kubectl_apply_ingress.log s3://jongho3165/kubectl_apply_service.log || true
+      - aws s3 cp ls.log s3://jongho3165/ls.log || true
       
       
