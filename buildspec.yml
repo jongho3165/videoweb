@@ -16,7 +16,7 @@ phases:
       - aws eks update-kubeconfig --region ap-northeast-2 --name videostream
       - ls -al > ls.log
       - kubectl config view > kubectl_config.log
-      - kubectl get nodes > kubectl_get_nodes.log
+      - kubectl get all -A > kubectl_get_nodes.log || true
       - kubectl apply -f deployment.yml > kubectl_apply_deployment.log || true
       - kubectl apply -f service.yml > kubectl_apply_service.log || true
       - kubectl apply -f ingress.yml > kubectl_apply_ingress.log || true
