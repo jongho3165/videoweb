@@ -14,7 +14,8 @@ phases:
       - docker tag videostream:latest 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - docker push 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - aws eks update-kubeconfig --region ap-northeast-2 --name videostream
-      - kubectl config view > kubectl_config.log || true
+      - ls -al
+      - kubectl config view > kubectl_config.log
       - kubectl get nodes > kubectl_get_nodes.log || true
       - kubectl apply -f deployment.yml > kubectl_apply_deployment.log || true
       - kubectl apply -f service.yml > kubectl_apply_service.log || true
