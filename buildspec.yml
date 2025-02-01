@@ -10,6 +10,7 @@ phases:
       - rm -rf ~/.aws/cli/cache
   build:
     commands:
+      - aws eks --region ap-northeast-2 update-kubeconfig --name videostream
       - aws sts get-caller-identity > aws.log 2>&1 || true
       - aws s3 cp aws.log s3://jongho3165/aws.log || true
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb
