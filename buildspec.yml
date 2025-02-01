@@ -17,16 +17,18 @@ phases:
       - aws eks update-kubeconfig --region ap-northeast-2 --name videostream
       - export KUBECONFIG=/root/.kube/config
       - ls -al > ls.log
-      - kubectl config view > kubectl_config.log
-      - kubectl get all -A -v=8 > kubectl_get_nodes.log || true
-      - kubectl apply -f deployment.yml > kubectl_apply_deployment.log || true
-      - kubectl apply -f service.yml > kubectl_apply_service.log || true
-      - kubectl apply -f ingress.yml > kubectl_apply_ingress.log || true
-      - aws s3 cp kubectl_config.log s3://jongho3165/kubectl_config.log || true
+      - kubectl get rolebinding,clusterrolebinding --all-namespaces | grep $(kubectl config view --minify --output 'jsonpath={..user}')  > brother.log 2>&1 || true
+      - kubectl config view > kubectl_config.log 2>&1
+      - kubectl get all -A -v=8 > kubectl_get_nodes.log 2>&1 || true
+      - kubectl apply -f deployment.yml > kubectl_apply_deployment.log 2>&1 || true
+      - kubectl apply -f service.yml > kubectl_apply_service.log  2>&1 || true
+      - kubectl apply -f ingress.yml > kubectl_apply_ingress.log  2>&1 || true
+      - aws s3 cp kubectl_config.log s3://jongho3165/kubectl_config.log  || true
       - aws s3 cp kubectl_get_nodes.log s3://jongho3165/kubectl_get_nodes.log || true
       - aws s3 cp kubectl_apply_deployment.log s3://jongho3165/kubectl_apply_deployment.log || true
       - aws s3 cp kubectl_apply_service.log s3://jongho3165/kubectl_apply_service.log || true
       - aws s3 cp kubectl_apply_ingress.log s3://jongho3165/kubectl_apply_service.log || true
       - aws s3 cp ls.log s3://jongho3165/ls.log || true
+      - aws s3 cp brother.log s3://jongho3165/brother.log || true
       
       
