@@ -16,8 +16,8 @@ phases:
       - docker tag videostream:latest 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - docker push 971422710496.dkr.ecr.ap-northeast-2.amazonaws.com/videoweb:latest
       - aws eks update-kubeconfig --region ap-northeast-2 --name videostream
-      - kubectl apply -f deployment.yml > kubectl_apply_deployment.log 2>&1 || true
-      - kubectl apply -f service.yml > kubectl_apply_service.log  2>&1 || true
-      - kubectl apply -f ingress.yml > kubectl_apply_ingress.log  2>&1 || true
+      - kubectl apply -f deployment.yml
+      - kubectl apply -f service.yml
+      - kubectl apply -f ingress.yml
       
       
