@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-*iij70-)$=q@wpf-_ncf5ep9*&oz7)!+h&-^x$2(+6wm0x9oz(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    os.getenv('DJANGO_ALLOWED_HOSTS', ''),  # 환경 변수로 동적 설정
+    '*.ap-northeast-2.elb.amazonaws.com',   # ELB 도메인 와일드카드
+]
 
 
 # Application definition
