@@ -1,0 +1,15 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Error: That port is already in use.
+Not Found: /
+[09/Mar/2025 08:43:18] "GET / HTTP/1.1" 404 2314
+Not Found: /favicon.ico
+[09/Mar/2025 08:43:18] "GET /favicon.ico HTTP/1.1" 404 2365
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 09, 2025 - 08:42:17
+Django version 5.1.7, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+
