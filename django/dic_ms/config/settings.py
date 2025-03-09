@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     os.getenv('DJANGO_ALLOWED_HOSTS', ''),  # 환경 변수로 동적 설정
     '*.ap-northeast-2.elb.amazonaws.com',   # ELB 도메인 와일드카드
+    '*',
 ]
 
 
